@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Btn component renders correctly 1`] = `
+<button
+  className="btn__watch"
+>
+  Watch Now
+</button>
+`;

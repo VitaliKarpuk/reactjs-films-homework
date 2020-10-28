@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test stars component renders correctly 1`] = `
+<span
+  className="stars"
+>
+  <ForwardRef(Rate)
+    character={<ForwardRef(StarFilled) />}
+    value={3}
+  />
+  <span
+    className="ant-rate-text"
+  >
+    3
+  </span>
+</span>
+`;
