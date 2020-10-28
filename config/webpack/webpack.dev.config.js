@@ -2,7 +2,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: {
@@ -46,6 +46,10 @@ module.exports = {
         test: /\.(s[ca]ss)/,
         use: [ 'style-loader', 'css-loader', 'sass-loader' ]
       },
+      { 
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader']
+      },
       // {
       //   test: /\.(s[ca]ss)/,
       //   use: [
@@ -85,7 +89,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     // new MiniCssExtractPlugin({
-    //   filename: "./css/[name].css",
+    //   filename: "./css/.[hash].css",
     //   chunkFilename: "[id].css"
     // }),
   ]

@@ -46,11 +46,19 @@ module.exports = {
       },
       {
         test: /\.jpg$/,
-        use: [{loader: "url-loader"}]
+        use: [{ loader: "url-loader" }]
+      },
+      { 
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader']
       },
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        test: /\.(s[ca]ss)/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+        ],
       },
     ]
   },
@@ -60,8 +68,8 @@ module.exports = {
       filename: "./index.html"
     }),
     new MiniCssExtractPlugin({
-      filename: "./css/[name].css",
-      chunkFilename: "[id].css"
-    })
+      filename: "./css/[name].[hash].css",
+      chunkFilename: "[id].[hash].css"
+    }),
   ]
 }
