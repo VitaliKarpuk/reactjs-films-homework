@@ -8,11 +8,6 @@
   display: flex;
   align-items: center;
   margin: 30px 10px 0 0;
-
-  & > div {
-    display: flex;
-    align-items: center;
-  }
 }
 
 .ant-rate-star-full {
@@ -32,5 +27,6 @@
   line-height: 44px;
   color: #ffffff;
   font-weight: 500;
-  margin-top: 30px;
+  margin-top: 35px;
 }
+
