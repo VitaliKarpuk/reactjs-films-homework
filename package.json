@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "antd": "^4.7.3",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.0",
@@ -30,7 +31,7 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js",
+      "\\.(css|scss|less)$": "<rootDir>/__mocks__/styleMock.js",
       "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
     }
   },
