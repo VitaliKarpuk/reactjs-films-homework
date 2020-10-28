@@ -2,10 +2,8 @@ import React from 'react'
 import MovieDetailsPage  from './pages/MovieDetailsPage/MovieDetailsPage';
 
 const App = () => {
-  console.log('ffff');
   return (
-    <div className="content">
-      <h1>fgfdgfh</h1>
+    <div className="wrapper">
       <MovieDetailsPage />
     </div>
   )
