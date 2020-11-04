@@ -4,7 +4,7 @@
   "description": "Expack is the bare-bones Express and Webpack boilerplate with ES6+ babel transpilation, ESLint linting, Hot Module Reloading, and Jest test framework enabled.",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --config ./config/jest/jest.config.js",
     "coverage": "jest --coverage",
     "build": "rm -rf dist && webpack --mode development --config ./config/webpack/webpack.server.config.js && webpack --mode development --config ./config/webpack/webpack.dev.config.js",
     "prod": "rm -rf dist && webpack --mode production --config ./config/webpack/webpack.server.config.js && webpack --mode production --config ./config/webpack/webpack.prod.config.js",
@@ -28,12 +28,6 @@
   },
   "engines": {
     "node": ">=4.3.2"
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "\\.(css|scss|less)$": "<rootDir>/__mocks__/styleMock.js",
-      "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
-    }
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

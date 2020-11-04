@@ -2,7 +2,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: {
@@ -20,7 +19,7 @@ module.exports = {
     rules: [
       {
         enforce: "pre",
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: "eslint-loader",
         options: {
@@ -30,7 +29,7 @@ module.exports = {
         }
       },
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: "babel-loader",
       },
@@ -50,14 +49,6 @@ module.exports = {
         test: /\.css$/,
         use: [ 'style-loader', 'css-loader']
       },
-      // {
-      //   test: /\.(s[ca]ss)/,
-      //   use: [
-      //     MiniCssExtractPlugin.loader,
-      //     'css-loader',
-      //     'sass-loader',
-      //   ],
-      // },
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: [{
@@ -80,6 +71,9 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
+  },
   plugins: [
     new HtmlWebPackPlugin({
       template: "./src/index.html",
@@ -88,9 +82,5 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    // new MiniCssExtractPlugin({
-    //   filename: "./css/.[hash].css",
-    //   chunkFilename: "[id].css"
-    // }),
   ]
 }
