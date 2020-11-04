@@ -15,7 +15,7 @@ module.exports = {
     filename: '[name].js'
   },
   target: 'web',
-  devtool: 'source-map',
+  devtool: '#source-map',
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
@@ -29,11 +29,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
+        loader: "babel-loader",
       },
       {
         test: /\.html$/,
@@ -45,14 +43,31 @@ module.exports = {
         ]
       },
       {
-        test: /\.jpg$/,
-        use: [{loader: "url-loader"}]
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [{ loader: "url-loader" }]
+      },
+      { 
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader']
       },
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        test: /\.(s[ca]ss)/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+        ],
       },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)$/,
+        use: [{
+          loader: "file-loader",
+        }]
+      }
     ]
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
   },
   plugins: [
     new HtmlWebPackPlugin({
@@ -60,8 +75,8 @@ module.exports = {
       filename: "./index.html"
     }),
     new MiniCssExtractPlugin({
-      filename: "./css/[name].css",
-      chunkFilename: "[id].css"
-    })
+      filename: "./css/[name].[hash].css",
+      chunkFilename: "[id].[hash].css"
+    }),
   ]
 }
