@@ -3,8 +3,8 @@ import React from 'react'
 import ShallowRenderer from 'react-test-renderer/shallow';
 import ModalInfo from '../../src/components/ModalInfo/ModalInfo';
 
-describe('Adder', () => {
-  test('adds two numbers', () => {
+describe('Test ModalInfo component', () => {
+  test('renders correctly', () => {
     const renderer = new ShallowRenderer();
     const result = renderer.render(<ModalInfo className='modal-info' />);
     renderer.getRenderOutput();
