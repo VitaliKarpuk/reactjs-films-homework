@@ -1,11 +1,7 @@
-import { createSelector } from "reselect";
-
-const getFilmsOriginTitle = state => {
-  console.log(state);
-  return state.original_title
+export const getListFilms = state => {
+  return state.films.length > 0 && state.films
 }
 
-export const getFilmsTitle = createSelector([getFilmsOriginTitle], (title) => {
-  console.log(title);
-  return title
-})
+export const getGenre = state => {
+  return state.genre
+}

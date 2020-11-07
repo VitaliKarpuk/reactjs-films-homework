@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import MovieList from '../components/MovieList/MovieList';
 import getFilms from '../modules/actions/getFilms';
+import { getListFilms, getGenre } from '../modules/selectors/index';
 
-const mapStateToPops = (state) => {
+const mapStateToPops = (state) => {  
   return {
-    films: state.films,
-    genre: state.genre
+    films: getListFilms(state),
+    genre: getGenre(state),
   }
 }
 
