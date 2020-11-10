@@ -10,17 +10,7 @@ exports[`Test MovieDetailsPage component renders correctly 1`] = `
     <h1>
       FILMS
     </h1>
-    <div
-      className="header__search"
-    >
-      <input
-        placeholder="the jungle book"
-        type="text"
-      />
-      <span
-        className="header__search-icon"
-      />
-    </div>
+    <UNDEFINED />
   </header>
   <div
     className="movie-details__content"

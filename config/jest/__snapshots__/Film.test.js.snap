@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Film component 1`] = `
+<div
+  className="movie-list__item"
+>
+  <div
+    className="movie-list__item_img"
+  />
+  <div
+    className="movie-list__rating"
+  >
+    <h3 />
+    <span />
+  </div>
+  <p
+    className="movie-list__genre"
+  />
+  <ModalWatch
+    handleBtnInfo={[Function]}
+  />
+</div>
+`;
+
+exports[`Test Film component 2`] = `
+<div
+  className="movie-list__item"
+>
+  <div
+    className="movie-list__item_img"
+  />
+  <div
+    className="movie-list__rating"
+  >
+    <h3 />
+    <span />
+  </div>
+  <p
+    className="movie-list__genre"
+  />
+  <div
+    className="movie-hover"
+  >
+    <div
+      className="movie-hover__icon"
+      onClick={[Function]}
+    />
+    <h3>
+      Watch Now
+    </h3>
+    <button
+      className="btn__info"
+      onClick={[Function]}
+    >
+      View Info
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Test Film component 3`] = `
+<div
+  className="movie-list__item"
+>
+  <div
+    className="movie-list__item_img"
+  />
+  <div
+    className="movie-list__rating"
+  >
+    <h3 />
+    <span />
+  </div>
+  <p
+    className="movie-list__genre"
+  />
+  <div
+    className="movie-hover"
+  >
+    <div
+      className="movie-hover__icon"
+      onClick={[Function]}
+    />
+    <h3>
+      Watch Now
+    </h3>
+    <button
+      className="btn__info"
+      onClick={[Function]}
+    >
+      View Info
+    </button>
+  </div>
+</div>
+`;

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ModalInfo component renders correctly 1`] = `
+<div
+  className="movie-info"
+>
+  <div
+    className="movie-info__close"
+  />
+  <div
+    className="movie-info__rating"
+  >
+    <h3 />
+    <span />
+  </div>
+  <p
+    className="movie-info__genre"
+  />
+  <p />
+  <ModalTrailer
+    className="btn__watch"
+    title="Watch Now"
+  />
+</div>
+`;

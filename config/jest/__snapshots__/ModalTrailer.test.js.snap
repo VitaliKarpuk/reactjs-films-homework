@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ModalTrailer component renders correctly 1`] = `
+<React.Fragment>
+  <div
+    className="movie-hover__icon"
+    onClick={[Function]}
+  />
+  <h3>
+    Watch Now
+  </h3>
+  <Btn
+    onClick={[Function]}
+  />
+  <Modal
+    centered={true}
+    confirmLoading={false}
+    maskTransitionName="fade"
+    okType="primary"
+    onCancel={[Function]}
+    onOk={[Function]}
+    transitionName="zoom"
+    visible={false}
+    width={1500}
+  >
+    <h2>
+      Trailer
+    </h2>
+  </Modal>
+</React.Fragment>
+`;

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test MovieList component renders correctly 1`] = `
+<section
+  className="movie-list"
+/>
+`;
