@@ -3,8 +3,7 @@ import MovieDetailsPage  from './pages/MovieDetailsPage/MovieDetailsPage';
 
 const App = () => {
   return (
-    <div className="content">
-      <h1>fgfdgfh</h1>
+    <div className="wrapper">
       <MovieDetailsPage />
     </div>
   )
