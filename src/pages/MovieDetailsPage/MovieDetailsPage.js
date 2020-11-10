@@ -2,6 +2,7 @@ import React from 'react';
 import Stars from '../../components/Stars/Stars';
 import Btn from '../../components/Btn/Btn';
 import ModalInfo from '../../components/ModalInfo/ModalInfo';
+import SearchInputContainer from '../../conteiners/SearchInputContainer';
 
 import './style.scss';
 
@@ -11,10 +12,7 @@ const MovieDetailsPage = () => {
     <div className="movie-details">
       <header className='header'>
         <h1>FILMS</h1>
-        <div className="header__search">
-          <input type="text" placeholder="the jungle book" />
-          <span className='header__search-icon'></span>
-        </div>
+        <SearchInputContainer />
       </header>
       <div className="movie-details__content">
         <div className="movie-details__title">

@@ -40,11 +40,11 @@ const Film = ({
           alt={`${title}`}
         />
       ) : (
-        <div className="movie-list__item_img">{title.toUpperCase()}</div>
+        <div className="movie-list__item_img">{title}</div>
       )}
 
       <div className="movie-list__rating">
-        <h3>{title.toUpperCase()}</h3>
+        <h3>{title}</h3>
         <span>{rating}</span>
       </div>
       <p className="movie-list__genre">

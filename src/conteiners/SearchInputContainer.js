@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import SearchInput from '../components/SearchInput/SearchInput';
 import searchFilms from '../modules/actions/searchFilms';
+import SearchInput from '../components/SearchInput/SearchInput';
 
 
 

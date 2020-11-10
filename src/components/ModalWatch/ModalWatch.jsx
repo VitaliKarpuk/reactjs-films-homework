@@ -8,8 +8,7 @@ import "./style.scss"
 const ModalWatch = ({ handleBtnInfo }) => {
   return (
     <div className="movie-hover">
-
-      <ModalTrailer handleBtnInfo={handleBtnInfo}/>
+      <ModalTrailer handleBtnInfo={handleBtnInfo} className={"btn__info"} title={"View Info"}/>
     </div>
   );
 };
