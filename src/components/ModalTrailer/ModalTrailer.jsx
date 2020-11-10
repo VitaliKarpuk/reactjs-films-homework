@@ -1,36 +1,37 @@
 import React, { useState } from "react";
+import PropTypes from 'prop-types';
 import "antd/dist/antd.css";
-import { Modal, Button } from "antd";
+import { Modal } from "antd";
 import Btn from "../Btn/Btn";
 
-const ModalTrailer = ({ handleBtnInfo }) => {
+const ModalTrailer = ({ handleBtnInfo, className, title }) => {
   const [visible, setVisible] = useState(false);
   return (
     <>
       <div className="movie-hover__icon" onClick={() => setVisible(true)}></div>
       <h3>Watch Now</h3>
-      {/* <Button type="primary" onClick={() => setVisible(true)}>
-        Open Modal of 1000px width
-      </Button> */}
       <Btn
-        className={"btn__info"}
-        title={"View Info"}
-        onClick={handleBtnInfo}
+        className={className}
+        title={title}
+        onClick={title=== 'View Info' ? handleBtnInfo : () => setVisible(true)}
       />
       <Modal
-        title="Modal 1000px width"
         centered
         visible={visible}
         onOk={() => setVisible(false)}
         onCancel={() => setVisible(false)}
-        width={1000}
+        width={1500}
       >
-        <p>some contents...</p>
-        <p>some contents...</p>
-        <p>some contents...</p>
+        <h2>Trailer</h2>
       </Modal>
     </>
   );
 };
+
+ModalTrailer.propTypes = {
+  handleBtnInfo: PropTypes.func,
+  className: PropTypes.string,
+  title: PropTypes.string
+}
 
 export default ModalTrailer;

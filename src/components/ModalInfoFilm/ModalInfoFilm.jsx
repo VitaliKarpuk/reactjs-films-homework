@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Btn from "../Btn/Btn";
+import ModalTrailer from '../ModalTrailer/ModalTrailer';
 
 import "./style.scss";
 
@@ -9,7 +9,7 @@ const ModalInfoFilm = ({ title, rating, genreFilm, overview, handleCloseInfo }) 
     <div className="movie-info">
       <div className="movie-info__close" onClick={handleCloseInfo}></div>
       <div className="movie-info__rating">
-        <h3>{title.toUpperCase()}</h3>
+        <h3>{title}</h3>
         <span>{rating}</span>
       </div>
       <p className="movie-info__genre">
@@ -19,7 +19,7 @@ const ModalInfoFilm = ({ title, rating, genreFilm, overview, handleCloseInfo }) 
           )}
       </p>
       <p>{overview}</p>
-      <Btn className={"btn__watch"} title={"Watch Now"} />
+      <ModalTrailer className={"btn__watch"} title={"Watch Now"} />
     </div>
   );
 };
