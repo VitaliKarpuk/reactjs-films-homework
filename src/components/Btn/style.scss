@@ -1,0 +1,22 @@
+.btn__watch, .btn__info {
+  width: 199px;
+  height: 60px;
+  border-radius: 6px;
+  margin: 5px;
+  font-size: 28px;
+  letter-spacing: 1px;
+  line-height: 44px;
+  color: #ffffff;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.btn__watch {
+  background-color: #0aaee4;
+  border: none;
+}
+
+.btn__info {
+  background-color: transparent;
+  border: 2px solid #ffffff;
+}
