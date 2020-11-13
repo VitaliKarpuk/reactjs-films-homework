@@ -20,7 +20,6 @@ describe('My Connected React-Redux Component', () => {
       dispatch: jest.fn()
     });
 
-
     component = renderer.create(
       <Provider store={store}>
         <MovieList />

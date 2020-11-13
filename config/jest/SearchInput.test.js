@@ -33,22 +33,3 @@ describe('My Connected React-Redux Component', () => {
     component.root.findByType('input').props.onKeyPress({key: "Enter"});
   });
 })
-
-// it("renders Search component", () => {
-//   act(() => {
-//     render(<SearchInput />, container);
-//   });
-//   const input = container.querySelector('input');
-//   expect(input.value).toBe("");
-//   ReactTestUtils.Simulate.change(input, { target: { value: 'test' } });
-//   expect(input.value).toBe("test");
-//   ReactTestUtils.Simulate.keyDown(input, { key: "E" });
-
-// });
-
-
-// it('Test event onKeyPress', () => {
-//   let root = TestRenderer.create(<SearchInput />)
-//   root.toJSON().children[0].props.onKeyPress({ key: "E" });
-//   expect(root.toJSON()).toMatchSnapshot();
-// })

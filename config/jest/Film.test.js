@@ -4,7 +4,6 @@ import { unmountComponentAtNode } from "react-dom";
 import { act, create } from 'react-test-renderer';
 import ShallowRenderer from 'react-test-renderer/shallow';
 import Film from '../../src/components/Film/Film';
-import ModalWatch from '../../src/components/ModalWatch/ModalWatch';
 
 let container = null;
 beforeEach(() => {

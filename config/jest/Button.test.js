@@ -3,7 +3,6 @@ import React from 'react'
 import ShallowRenderer from 'react-test-renderer/shallow';
 import Button from '../../src/components/Button/Button';
 
-
 describe('Test Btn component', () => {
   test('renders correctly', () => {
     const renderer = new ShallowRenderer();
