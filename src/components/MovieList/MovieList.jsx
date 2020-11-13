@@ -1,13 +1,18 @@
 /* eslint-disable react/jsx-key */
 import React, { useEffect } from "react";
-import PropTypes from "prop-types";
+import { useSelector, useDispatch } from "react-redux";
 import Film from "../Film/Film";
+import { getListFilms, getGenre } from "../../modules/selectors/index";
+import requestFilms from "../../modules/actions/requestFilms";
 
 import "./style.scss";
 
-const MovieList = ({ films, onGetilms, genre }) => {
+const MovieList = () => {
+  const films = useSelector(state => getListFilms(state));
+  const genre = useSelector(state => getGenre(state));
+  const dispatch = useDispatch();
   useEffect(() => {
-    onGetilms();
+    dispatch(requestFilms());
   }, []);
 
   const changeGenre = arr => {
@@ -23,35 +28,23 @@ const MovieList = ({ films, onGetilms, genre }) => {
 
   return (
     <section className="movie-list">
-      {films &&
-        films.map(film => {
-          return (
-            <Film
-              key={film.id}
-              title={film.title}
-              overview={film.overview}
-              imgUrl={film.poster_path}
-              rating={film.vote_average}
-              genreFilmArray={film.genre_ids}
-              genre={genre}
-              changeGenre={changeGenre}
-              testId={"myButton"}
-            />
-          );
-        })}
+      {films.map(film => {
+        return (
+          <Film
+            key={film.id}
+            title={film.title}
+            overview={film.overview}
+            imgUrl={film.poster_path}
+            rating={film.vote_average}
+            genreFilmArray={film.genre_ids}
+            genre={genre}
+            changeGenre={changeGenre}
+            testId={"myButton"}
+          />
+        );
+      })}
     </section>
   );
-};
-
-MovieList.propTypes = {
-  films: PropTypes.array.isRequired,
-  onGetilms: PropTypes.func,
-  genre: PropTypes.array
-};
-
-MovieList.defaultProps = {
-  onGetilms: () => {},
-  genre: []
 };
 
 export default MovieList;

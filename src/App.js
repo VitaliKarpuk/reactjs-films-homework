@@ -1,12 +1,12 @@
 import React from 'react';
 import MovieDetailsPage from './pages/MovieDetailsPage/MovieDetailsPage';
-import MovieListContainer from './conteiners/MovieListContainer';
+import MovieList from './components/MovieList/MovieList';
 
 const App = () => {
   return (
     <div className="wrapper">
       <MovieDetailsPage />
-      <MovieListContainer />
+      <MovieList />
     </div>
   )
 }

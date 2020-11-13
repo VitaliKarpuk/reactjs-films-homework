@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+import requestSearchFilms from "../../modules/actions/requestSearchFilms";
 
-const SearchInput = ({ onSearchFilms }) => {
+const SearchInput = () => {
   const [value, setValue] = useState("");
+  const dispatch = useDispatch();
   const onChangeValue = e => {
     setValue(e.target.value);
   };
 
   const onHandleEnter = ({ key }) => {
     if (key === "Enter") {
-      onSearchFilms(value);
+      dispatch(requestSearchFilms(value));
     }
   };
   return (
@@ -24,14 +26,6 @@ const SearchInput = ({ onSearchFilms }) => {
       <span className="header__search-icon"></span>
     </div>
   );
-};
-
-SearchInput.propTypes = {
-  onSearchFilms: PropTypes.func
-};
-
-SearchInput.defaultProps = {
-  onSearchFilms: () => {}
 };
 
 export default SearchInput;
