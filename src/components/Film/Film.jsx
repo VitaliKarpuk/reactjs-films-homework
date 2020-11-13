@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import ModalWatch from "../ModalWatch/ModalWatch";
 import ModalInfoFilm from "../ModalInfoFilm/ModalInfoFilm";
+import ModalTrailer from "../ModalTrailer/ModalTrailer";
 
 import "./style.scss";
 
@@ -10,13 +11,13 @@ const Film = ({
   overview,
   imgUrl,
   rating,
-  id,
   genreFilmArray,
   changeGenre,
   genre
 }) => {
   const [showInfoFilm, setShowInfoFilm] = useState(false);
   const [genreFilm, setGenreFilm] = useState([]);
+  const [showTrailer, setShowTrailer] = useState(false);
 
   useEffect(() => {
     if (genreFilmArray && genre.length > 0) {
@@ -26,14 +27,22 @@ const Film = ({
 
   const handleBtnInfo = () => {
     setShowInfoFilm(true);
-  };
+  }
 
   const handleCloseInfo = () => {
     setShowInfoFilm(false);
+  };
+
+  const handleShowrailer = () => {
+    setShowTrailer(true);
+  };
+
+  const handleCloseTrailer = () => {
+    setShowTrailer(false);
   }
 
   return (
-    <div className="movie-list__item" key={id}>
+    <div className="movie-list__item">
       {imgUrl ? (
         <img
           src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2/${imgUrl}`}
@@ -60,9 +69,24 @@ const Film = ({
           genreFilm={genreFilm}
           overview={overview}
           handleCloseInfo={handleCloseInfo}
+          handleShowrailer={handleShowrailer}
         />
       )}
-      {!showInfoFilm && <ModalWatch handleBtnInfo={handleBtnInfo} />}
+      {!showInfoFilm && (
+        <ModalWatch
+          handleBtnInfo={handleBtnInfo}
+          handleShowrailer={handleShowrailer}
+          showTrailer={showTrailer}
+        />
+      )}
+      {showTrailer && (
+        <ModalTrailer
+          className={"btn__info"}
+          title={title}
+          showTrailer={showTrailer}
+          handleCloseTrailer={handleCloseTrailer}
+        />
+      )}
     </div>
   );
 };
@@ -73,9 +97,19 @@ Film.propTypes = {
   imgUrl: PropTypes.string,
   rating: PropTypes.number,
   id: PropTypes.number,
-  genreFilmArray: PropTypes.array,
+  genreFilmArray: PropTypes.array.isRequired,
   genre: PropTypes.array,
   changeGenre: PropTypes.func
+};
+
+Film.defaultProps = {
+  title: "",
+  overview: "",
+  imgUrl: "",
+  rating: 0,
+  id: Math.random(),
+  genre: [],
+  changeGenre: () => {}
 };
 
 export default Film;

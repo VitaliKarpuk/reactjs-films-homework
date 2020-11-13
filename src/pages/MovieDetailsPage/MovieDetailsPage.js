@@ -1,11 +1,9 @@
 import React from 'react';
 import Stars from '../../components/Stars/Stars';
-import Btn from '../../components/Btn/Btn';
 import ModalInfo from '../../components/ModalInfo/ModalInfo';
 import SearchInputContainer from '../../conteiners/SearchInputContainer';
 
 import './style.scss';
-
 
 const MovieDetailsPage = () => {
   return (
@@ -28,10 +26,9 @@ const MovieDetailsPage = () => {
         </div>
         <div className="movie-details__buttons">
           <ModalInfo />
-          <Btn title='Watch Now' className="btn__watch"/>
-          <Btn title='View Info' className="btn__info"/>
+          <button className="btn__watch">Watch Now</button>
+          <button className="btn__info">View Info</button>
         </div>
-
       </div>
     </div>
   )

@@ -1,37 +1,34 @@
-import React, { useState } from "react";
-import PropTypes from 'prop-types';
-import "antd/dist/antd.css";
-import { Modal } from "antd";
-import Btn from "../Btn/Btn";
+import React from "react";
+import PropTypes from "prop-types";
 
-const ModalTrailer = ({ handleBtnInfo, className, title }) => {
-  const [visible, setVisible] = useState(false);
+import "./style.scss";
+
+const ModalTrailer = ({ className, title, handleCloseTrailer }) => {
   return (
-    <>
-      <div className="movie-hover__icon" onClick={() => setVisible(true)}></div>
-      <h3>Watch Now</h3>
-      <Btn
-        className={className}
-        title={title}
-        onClick={title=== 'View Info' ? handleBtnInfo : () => setVisible(true)}
-      />
-      <Modal
-        centered
-        visible={visible}
-        onOk={() => setVisible(false)}
-        onCancel={() => setVisible(false)}
-        width={1500}
-      >
-        <h2>Trailer</h2>
-      </Modal>
-    </>
+    <div className="modal__trailer">
+      <div className="modali__trailer_window">
+        <button className={className} onClick={handleCloseTrailer}>
+          close
+        </button>
+        <div>
+          <h2>{title}</h2>
+        </div>
+      </div>
+    </div>
   );
 };
 
 ModalTrailer.propTypes = {
   handleBtnInfo: PropTypes.func,
+  handleCloseTrailer: PropTypes.func,
   className: PropTypes.string,
   title: PropTypes.string
-}
+};
 
+ModalTrailer.defaultProps = {
+  handleBtnInfo: () => {},
+  handleCloseTrailer: () => {},
+  className: "",
+  title: ""
+};
 export default ModalTrailer;

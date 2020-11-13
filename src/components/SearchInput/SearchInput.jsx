@@ -30,4 +30,8 @@ SearchInput.propTypes = {
   onSearchFilms: PropTypes.func
 };
 
+SearchInput.defaultProps = {
+  onSearchFilms: () => {}
+};
+
 export default SearchInput;

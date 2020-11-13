@@ -1,0 +1,28 @@
+.modal__trailer{
+  position: fixed;
+  min-width: 100vw;
+  height: 100vh;
+  background-color: #8a8a8a9e;
+  top: 0;
+  left: 0;
+  z-index: 7;
+
+  .modali__trailer_window{
+    width: 80%;
+    height: 70vh;
+    margin: 0 auto;
+    margin-top: 15vh;
+    background-color: rgb(94, 94, 94);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    div{
+      height: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: aliceblue;
+    }
+  }
+}

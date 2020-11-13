@@ -1,5 +1,5 @@
 export const getListFilms = state => {
-  return state.films.length > 0 && state.films
+  return state.films.length > 0 ? state.films : []
 }
 
 export const getGenre = state => {

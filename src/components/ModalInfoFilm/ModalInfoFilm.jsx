@@ -1,10 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ModalTrailer from '../ModalTrailer/ModalTrailer';
+import ModalTrailer from "../ModalTrailer/ModalTrailer";
 
 import "./style.scss";
 
-const ModalInfoFilm = ({ title, rating, genreFilm, overview, handleCloseInfo }) => {
+const ModalInfoFilm = ({
+  title,
+  rating,
+  genreFilm,
+  overview,
+  handleCloseInfo,
+  handleShowrailer
+}) => {
   return (
     <div className="movie-info">
       <div className="movie-info__close" onClick={handleCloseInfo}></div>
@@ -19,17 +26,26 @@ const ModalInfoFilm = ({ title, rating, genreFilm, overview, handleCloseInfo }) 
           )}
       </p>
       <p>{overview}</p>
-      <ModalTrailer className={"btn__watch"} title={"Watch Now"} />
+      <button className="btn__watch" onClick={handleShowrailer}>Watch Now</button>
     </div>
   );
 };
 
 ModalInfoFilm.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   rating: PropTypes.number,
   genreFilm: PropTypes.array,
   overview: PropTypes.string,
-  handleCloseInfo: PropTypes.func
+  handleCloseInfo: PropTypes.func,
+  handleShowrailer: PropTypes.func
+};
+
+ModalInfoFilm.defaultProps = {
+  rating: 0,
+  genreFilm: [],
+  overview: "",
+  handleCloseInfo: () => {},
+  handleShowrailer: () =>{}
 };
 
 export default ModalInfoFilm;

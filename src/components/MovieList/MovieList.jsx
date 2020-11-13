@@ -17,8 +17,8 @@ const MovieList = ({ films, onGetilms, genre }) => {
           acc[index] = elem.name;
         }
       });
-      return acc
-    }, [])
+      return acc;
+    }, []);
   };
 
   return (
@@ -27,7 +27,7 @@ const MovieList = ({ films, onGetilms, genre }) => {
         films.map(film => {
           return (
             <Film
-              id={film.id}
+              key={film.id}
               title={film.title}
               overview={film.overview}
               imgUrl={film.poster_path}
@@ -35,6 +35,7 @@ const MovieList = ({ films, onGetilms, genre }) => {
               genreFilmArray={film.genre_ids}
               genre={genre}
               changeGenre={changeGenre}
+              testId={"myButton"}
             />
           );
         })}
@@ -43,9 +44,14 @@ const MovieList = ({ films, onGetilms, genre }) => {
 };
 
 MovieList.propTypes = {
-  films: PropTypes.array,
+  films: PropTypes.array.isRequired,
   onGetilms: PropTypes.func,
   genre: PropTypes.array
+};
+
+MovieList.defaultProps = {
+  onGetilms: () => {},
+  genre: []
 };
 
 export default MovieList;

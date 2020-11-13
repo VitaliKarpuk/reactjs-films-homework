@@ -1,16 +1,26 @@
 import React from "react";
-import Btn from "../Btn/Btn";
-import ModalTrailer from '../ModalTrailer/ModalTrailer';
+import PropTypes from "prop-types";
 
+import "./style.scss";
 
-import "./style.scss"
-
-const ModalWatch = ({ handleBtnInfo }) => {
+const ModalWatch = ({ handleBtnInfo, handleShowrailer }) => {
   return (
     <div className="movie-hover">
-      <ModalTrailer handleBtnInfo={handleBtnInfo} className={"btn__info"} title={"View Info"}/>
+      <div className="movie-hover__icon" onClick={handleShowrailer}></div>
+      <h3>Watch Now</h3>
+      <button className="btn__info" onClick={handleBtnInfo}>View Info</button>
     </div>
   );
+};
+
+ModalWatch.propTypes = {
+  handleShowrailer: PropTypes.func,
+  handleBtnInfo: PropTypes.func
+};
+
+ModalWatch.defaultProps = {
+  handleShowrailer: () => {},
+  handleBtnInfo: () => {}
 };
 
 export default ModalWatch;
