@@ -25,21 +25,9 @@ const Film = ({
     }
   }, [genreFilmArray, genre]);
 
-  const handleBtnInfo = () => {
-    setShowInfoFilm(true);
-  }
+  const toggleInfoModal = () => setShowInfoFilm(showInfoFilm => !showInfoFilm);
 
-  const handleCloseInfo = () => {
-    setShowInfoFilm(false);
-  };
-
-  const handleShowrailer = () => {
-    setShowTrailer(true);
-  };
-
-  const handleCloseTrailer = () => {
-    setShowTrailer(false);
-  }
+  const toggleTrailerModal = () => setShowTrailer(showTrailer => !showTrailer);
 
   return (
     <div className="movie-list__item">
@@ -62,20 +50,19 @@ const Film = ({
             genreFilm[index + 1] ? `${item}, ` : `${item}`
           )}
       </p>
-      {showInfoFilm && (
+      {showInfoFilm ? (
         <ModalInfoFilm
           title={title}
           rating={rating}
           genreFilm={genreFilm}
           overview={overview}
-          handleCloseInfo={handleCloseInfo}
-          handleShowrailer={handleShowrailer}
+          handleCloseInfo={toggleInfoModal}
+          handleShowrailer={toggleTrailerModal}
         />
-      )}
-      {!showInfoFilm && (
+      ) : (
         <ModalWatch
-          handleBtnInfo={handleBtnInfo}
-          handleShowrailer={handleShowrailer}
+          handleBtnInfo={toggleInfoModal}
+          handleShowrailer={toggleTrailerModal}
           showTrailer={showTrailer}
         />
       )}
@@ -84,7 +71,7 @@ const Film = ({
           className={"btn__info"}
           title={title}
           showTrailer={showTrailer}
-          handleCloseTrailer={handleCloseTrailer}
+          handleCloseTrailer={toggleTrailerModal}
         />
       )}
     </div>
