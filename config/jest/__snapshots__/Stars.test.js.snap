@@ -1,17 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Test stars component renders correctly 1`] = `
-<span
-  className="stars"
+<div
+  className="stars__raiting"
 >
-  <ForwardRef(Rate)
-    character={<ForwardRef(StarFilled) />}
-    value={3}
-  />
   <span
-    className="ant-rate-text"
+    className="star__rating_active"
+  >
+    🟊
+  </span>
+  <span
+    className="star__rating_active"
+  >
+    🟊
+  </span>
+  <span
+    className="star__rating_active"
+  >
+    🟊
+  </span>
+  <span
+    className="star__rating_inactive"
+  >
+    🟊
+  </span>
+  <span
+    className="star__rating_inactive"
+  >
+    🟊
+  </span>
+  <div
+    className="stars__raiting_value"
   >
     3
-  </span>
-</span>
+  </div>
+</div>
 `;

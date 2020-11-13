@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`My Connected React-Redux Component should render with given state from Redux store 1`] = `
+<div
+  className="header__search"
+>
+  <input
+    onChange={[Function]}
+    onKeyPress={[Function]}
+    placeholder="the jungle book"
+    type="text"
+    value=""
+  />
+  <span
+    className="header__search-icon"
+  />
+</div>
+`;

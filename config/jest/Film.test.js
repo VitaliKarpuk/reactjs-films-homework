@@ -1,9 +1,8 @@
 /* eslint-disable no-undef */
 import React from 'react'
-import { render, unmountComponentAtNode } from "react-dom";
-import TestRenderer, { act, create } from 'react-test-renderer';
+import { unmountComponentAtNode } from "react-dom";
+import { act, create } from 'react-test-renderer';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import ReactTestUtils from 'react-dom/test-utils';
 import Film from '../../src/components/Film/Film';
 import ModalWatch from '../../src/components/ModalWatch/ModalWatch';
 
@@ -21,39 +20,40 @@ afterEach(() => {
 
 it('Test Film component', () => {
   const renderer = new ShallowRenderer();
-  renderer.render(<Film />);
+  renderer.render(<Film genreFilmArray={[]} />);
   const result = renderer.getRenderOutput();
   expect(result.type).toBe('div');
   expect(result.props.className).toBe('movie-list__item');
   expect(result.props.children[0].type).toBe('div');
   expect(result.props.children[1].type).toBe('div');
   expect(result.props.children[2].type).toBe('p');
-  expect(result.props.children[4]).toMatchObject(<ModalWatch />);
-  expect(result.props.children.length).toBe(5)
+  expect(result.props.children.length).toBe(6)
 
   expect(result).toMatchSnapshot();
 })
 
-const tree = create(<Film />)
-it('Test Film component', () => {
-  tree.toJSON();
-  expect(tree).toMatchSnapshot();
-  console.log(tree)
-  expect(tree).toMatchSnapshot();
-  // act(() => {
-  //   render(<Film />, container);
-  // });
-  // const div = container.querySelector('.movie-list__item');
-  // console.log(div);
+it('renders correctly Film component in MovieList component', () => {
+  let root;
+  act(() => {
+    root = create(<Film changeGenre={() => { }} genreFilmArray={['1', '2']} genre={['1', '2']} />)
+  });
+  root.toTree().props.changeGenre(['1', '2']);
+  act(() => {
+    root.toTree().rendered.props.children[4].props.handleBtnInfo();
+  })
 
-  // ReactTestUtils.Simulate.change(input, { target: { value: 'test' } });
-  // expect(input.value).toBe("test");
-  // ReactTestUtils.Simulate.keyDown(input, { key: "E" });
+  act(() => {
+    root.toTree().rendered.props.children[3].props.handleCloseInfo();
+  })
 
-})
 
-it('test', () => {
-  const button = tree.root.findAllByType('button');
-  // act( ()=> button.onPress())
-  console.log(button.getIs);
+  act(() => {
+    root.toTree().rendered.props.children[4].props.handleShowrailer();
+  })
+
+  act(() => {
+    root.toTree().rendered.props.children[5].props.handleCloseTrailer();
+  })
+
+  expect(root).toMatchSnapshot();
 })
