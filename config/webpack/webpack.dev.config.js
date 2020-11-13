@@ -41,13 +41,13 @@ module.exports = {
           }
         ]
       },
-      { 
+      {
         test: /\.(s[ca]ss)/,
-        use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+        use: ['style-loader', 'css-loader', 'sass-loader']
       },
-      { 
+      {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
@@ -60,7 +60,7 @@ module.exports = {
         }]
       },
       {
-        test: /\.(woff(2)?|ttf|eot|svg)$/,
+        test: /\.(woff(2)?|ttf|eot)$/,
         use: [{
           loader: "file-loader",
           options: {

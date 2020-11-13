@@ -9,5 +9,5 @@ module.exports = {
     "!**/node_modules/**",
     "!**/vendor/**"
   ],
-  coveragePathIgnorePatterns : ["<rootDir>/build/", "<rootDir>/node_modules/", "<rootDir>/config/", "<rootDir>/jest.config.js", "<rootDir>/coverage/"]
+  coveragePathIgnorePatterns : ["<rootDir>/build/", "<rootDir>/node_modules/", "<rootDir>/config/", "<rootDir>/jest.config.js", "<rootDir>/coverage/", "<rootDir>/.eslintrc.js", "store.js", "index.js", "server-dev.js"]
 };
