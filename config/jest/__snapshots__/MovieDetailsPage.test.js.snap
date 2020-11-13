@@ -10,7 +10,7 @@ exports[`Test MovieDetailsPage component renders correctly 1`] = `
     <h1>
       FILMS
     </h1>
-    <Memo(Connect(SearchInput)) />
+    <SearchInput />
   </header>
   <div
     className="movie-details__content"
@@ -46,16 +46,16 @@ exports[`Test MovieDetailsPage component renders correctly 1`] = `
       className="movie-details__buttons"
     >
       <ModalInfo />
-      <button
+      <Button
         className="btn__watch"
-      >
-        Watch Now
-      </button>
-      <button
+        func={[Function]}
+        title="Watch Now"
+      />
+      <Button
         className="btn__info"
-      >
-        View Info
-      </button>
+        func={[Function]}
+        title="View Info"
+      />
     </div>
   </div>
 </div>
