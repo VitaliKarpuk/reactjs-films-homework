@@ -27,7 +27,7 @@ it('Test Film component', () => {
   expect(result.props.children[0].type).toBe('div');
   expect(result.props.children[1].type).toBe('div');
   expect(result.props.children[2].type).toBe('p');
-  expect(result.props.children.length).toBe(6)
+  expect(result.props.children.length).toBe(5)
 
   expect(result).toMatchSnapshot();
 })
@@ -37,23 +37,6 @@ it('renders correctly Film component in MovieList component', () => {
   act(() => {
     root = create(<Film changeGenre={() => { }} genreFilmArray={['1', '2']} genre={['1', '2']} />)
   });
-  root.toTree().props.changeGenre(['1', '2']);
-  act(() => {
-    root.toTree().rendered.props.children[4].props.handleBtnInfo();
-  })
-
-  act(() => {
-    root.toTree().rendered.props.children[3].props.handleCloseInfo();
-  })
-
-
-  act(() => {
-    root.toTree().rendered.props.children[4].props.handleShowrailer();
-  })
-
-  act(() => {
-    root.toTree().rendered.props.children[5].props.handleCloseTrailer();
-  })
 
   expect(root).toMatchSnapshot();
 })

@@ -3,7 +3,7 @@ import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
 import App from '../../src/App';
 import MovieDetailsPage from '../../src/pages/MovieDetailsPage/MovieDetailsPage';
-import MovieListContainer from '../../src/conteiners/MovieListContainer';
+import MovieList from '../../src/components/MovieList/MovieList';
 
 describe('Test App component', () => {
   test('renders correctly', () => {
@@ -13,7 +13,7 @@ describe('Test App component', () => {
     expect(result.type).toBe('div');
     expect(result.props.className).toBe('wrapper')
     expect(result.props.children[0]).toMatchObject(<MovieDetailsPage />);
-    expect(result.props.children[1]).toMatchObject(<MovieListContainer />);
+    expect(result.props.children[1]).toMatchObject(<MovieList />);
     expect(result).toMatchSnapshot();
   })
 })

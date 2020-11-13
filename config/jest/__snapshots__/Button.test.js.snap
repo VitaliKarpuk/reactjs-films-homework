@@ -3,6 +3,7 @@
 exports[`Test Btn component renders correctly 1`] = `
 <button
   className="btn__watch"
+  onClick={[Function]}
 >
   Watch Now
 </button>

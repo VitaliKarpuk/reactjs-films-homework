@@ -45,10 +45,9 @@ const Film = ({
         <span>{rating}</span>
       </div>
       <p className="movie-list__genre">
-        {genreFilm &&
-          genreFilm.map((item, index) =>
-            genreFilm[index + 1] ? `${item}, ` : `${item}`
-          )}
+        {genreFilm.map((item, index) =>
+          genreFilm[index + 1] ? `${item}, ` : `${item}`
+        )}
       </p>
       {showInfoFilm ? (
         <ModalInfoFilm

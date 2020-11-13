@@ -10,7 +10,7 @@ describe('Test stars component', () => {
     renderer.getRenderOutput();
     expect(result.type).toBe('div');
     expect(result.props.className).toBe('stars__raiting')
-    expect(result.props.children[1].type).toBe('div');
+    expect(result.props.children[1].type).toBe('span');
     expect(result).toMatchSnapshot();
   })
 })

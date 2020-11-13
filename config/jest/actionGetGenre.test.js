@@ -1,9 +1,8 @@
 /* eslint-disable no-undef */
 import cofigureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-
-import getGenre from '../../src/modules/actions/getGenre';
-import { API_KEY, GET_GENRE } from '../../src/modules/constants/constants';
+import { API_KEY, GET_GENRE, BASE_URL, categories } from '../../src/modules/constants/constants';
+import requesGenre from '../../src/modules/actions/requesGenre';
 
 import fetchMock from 'fetch-mock';
 
@@ -15,7 +14,7 @@ afterEach(() => {
   fetchMock.restore()
 })
 it('action getGenre', () => {
-  fetchMock.getOnce(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`, {
+  fetchMock.getOnce(`${BASE_URL}/${categories.genre}/movie/list?api_key=${API_KEY}&language=en-US`, {
     headers: { 'content-type': 'application/json' },
     body: { genres: [1, 2, 3], status: 'ok' }
   })
@@ -28,7 +27,7 @@ it('action getGenre', () => {
   ]
   const store = mockStore({})
 
-  return store.dispatch(getGenre()).then(() => {
+  return store.dispatch(requesGenre()).then(() => {
     expect(store.getActions()).toEqual(expectedActions)
   })
 })

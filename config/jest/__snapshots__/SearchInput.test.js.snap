@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test event onKeyPress 1`] = `
+exports[`My Connected React-Redux Component renders Search component 1`] = `
 <div
   className="header__search"
 >
@@ -9,7 +9,7 @@ exports[`Test event onKeyPress 1`] = `
     onKeyPress={[Function]}
     placeholder="the jungle book"
     type="text"
-    value=""
+    value="test"
   />
   <span
     className="header__search-icon"

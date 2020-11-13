@@ -5,6 +5,6 @@ exports[`Test App component renders correctly 1`] = `
   className="wrapper"
 >
   <MovieDetailsPage />
-  <Memo(Connect(MovieList)) />
+  <MovieList />
 </div>
 `;
