@@ -10,17 +10,7 @@ exports[`Test MovieDetailsPage component renders correctly 1`] = `
     <h1>
       FILMS
     </h1>
-    <div
-      className="header__search"
-    >
-      <input
-        placeholder="the jungle book"
-        type="text"
-      />
-      <span
-        className="header__search-icon"
-      />
-    </div>
+    <Memo(Connect(SearchInput)) />
   </header>
   <div
     className="movie-details__content"
@@ -56,14 +46,16 @@ exports[`Test MovieDetailsPage component renders correctly 1`] = `
       className="movie-details__buttons"
     >
       <ModalInfo />
-      <Btn
+      <button
         className="btn__watch"
-        title="Watch Now"
-      />
-      <Btn
+      >
+        Watch Now
+      </button>
+      <button
         className="btn__info"
-        title="View Info"
-      />
+      >
+        View Info
+      </button>
     </div>
   </div>
 </div>

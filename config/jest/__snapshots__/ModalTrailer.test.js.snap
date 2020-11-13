@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ModalTrailer component renders correctly 1`] = `
+<div
+  className="modal__trailer"
+>
+  <div
+    className="modali__trailer_window"
+  >
+    <button
+      className=""
+      onClick={[Function]}
+    >
+      close
+    </button>
+    <div>
+      <h2>
+        
+      </h2>
+    </div>
+  </div>
+</div>
+`;
