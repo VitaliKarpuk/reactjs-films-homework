@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Adder adds two numbers 1`] = `
+exports[`Test ModalInfo component renders correctly 1`] = `
 <div
   className="modal-info"
 >
