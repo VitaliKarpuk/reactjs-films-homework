@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import "./style.scss";
 
-const ModalTrailer = ({ className, title, handleCloseTrailer }) => {
+const ModalTrailer = ({ className, handleCloseTrailer, trailer }) => {
   return (
     <div className="modal__trailer">
       <div className="modali__trailer_window">
@@ -11,7 +11,7 @@ const ModalTrailer = ({ className, title, handleCloseTrailer }) => {
           close
         </button>
         <div>
-          <h2>{title}</h2>
+          <iframe src={`https://www.youtube.com/embed/${trailer}`}></iframe>
         </div>
       </div>
     </div>
@@ -19,16 +19,14 @@ const ModalTrailer = ({ className, title, handleCloseTrailer }) => {
 };
 
 ModalTrailer.propTypes = {
-  handleBtnInfo: PropTypes.func,
   handleCloseTrailer: PropTypes.func,
   className: PropTypes.string,
-  title: PropTypes.string
+  trailer: PropTypes.string
 };
 
 ModalTrailer.defaultProps = {
-  handleBtnInfo: () => {},
   handleCloseTrailer: () => {},
   className: "",
-  title: ""
+  trailer: ""
 };
 export default ModalTrailer;

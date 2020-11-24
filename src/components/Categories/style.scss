@@ -1,0 +1,124 @@
+.movie-list__categories {
+  max-width: 100%;
+  padding: 30px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e4e4e4;
+
+  & > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #acacac;
+
+    & > div {
+      display: flex;
+      width: 90px;
+      justify-content: space-between;
+    }
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin-right: 30px;
+      padding-bottom: 4px;
+      letter-spacing: 1px;
+      line-height: 44px;
+      font-weight: bold;
+      color: #0aaee4;
+      position: relative;
+      transition: all 0.4s;
+      -webkit-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+      -ms-transition: all 0.4s;
+      -o-transition: all 0.4s;
+
+      a {
+        letter-spacing: 1px;
+        line-height: 44px;
+        color: #0aaee4;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+      .movie-list__categories-genre_list {
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(228, 228, 228);
+        position: absolute;
+        z-index: 1;
+        padding: 10px;
+        left: -9999px;
+        border: 1px solid;
+        border-top: none;
+        margin-top: 9px;
+        transition: all 0.3s;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -ms-transition: all 0.3s;
+        -o-transition: all 0.3s;
+
+        li{
+          border-bottom: 1px solid;
+          width: 400px;
+          font-size: 25px;
+
+          &:hover {
+            color: #004961;
+          }
+        }
+      }
+
+      &:hover .movie-list__categories-genre_list {
+        left: 0;
+      }
+    }
+
+    .movie-list__categories_active-item {
+      border-bottom: 4px solid #0aaee4;
+    }
+  }
+
+  .movie-list__categories_four-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 35px;
+    height: 35px;
+
+    span {
+      display: block;
+      width: 16px;
+      height: 14px;
+      border-radius: 2px;
+      background-color: #3bb4e0;
+    }
+  }
+
+  .movie-list__categories_two-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 35px;
+    height: 35px;
+
+    span {
+      width: 35px;
+      height: 14px;
+      border-radius: 2px;
+      background-color: #acacac;
+    }
+  }
+}

@@ -9,6 +9,9 @@ module.exports = (env, argv) => {
     entry: {
       server: SERVER_PATH,
     },
+    devServer: {
+      historyApiFallback: true
+    },
     output: {
       path: path.join(__dirname, '../../build'),
       publicPath: '/',

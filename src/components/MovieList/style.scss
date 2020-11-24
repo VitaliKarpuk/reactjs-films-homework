@@ -3,7 +3,12 @@
   background-color: rgb(228, 228, 228);
   padding: 50px 30px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column;
+  
+  .movie-list__wrapper-items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 }

@@ -1,3 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`My Connected React-Redux Component renders Search component 1`] = `null`;
+exports[`My Connected React-Redux Component renders Search component 1`] = `
+<section
+  className="movie-list"
+>
+  <div
+    className="movie-list__wrapper-items"
+  />
+</section>
+`;

@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 import ModalWatch from "../ModalWatch/ModalWatch";
 import ModalInfoFilm from "../ModalInfoFilm/ModalInfoFilm";
 import ModalTrailer from "../ModalTrailer/ModalTrailer";
+import requesTrailer from "../../modules/actions/requesTrailer";
+import { selectorTrailer } from '../../modules/selectors/index';
 
 import "./style.scss";
 
@@ -13,11 +16,14 @@ const Film = ({
   rating,
   genreFilmArray,
   changeGenre,
-  genre
+  genre,
+  id
 }) => {
   const [showInfoFilm, setShowInfoFilm] = useState(false);
   const [genreFilm, setGenreFilm] = useState([]);
   const [showTrailer, setShowTrailer] = useState(false);
+  const trailer = useSelector(state => selectorTrailer(state))
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (genreFilmArray && genre.length > 0) {
@@ -27,7 +33,10 @@ const Film = ({
 
   const toggleInfoModal = () => setShowInfoFilm(showInfoFilm => !showInfoFilm);
 
-  const toggleTrailerModal = () => setShowTrailer(showTrailer => !showTrailer);
+  const toggleTrailerModal = () => {
+    !showTrailer && dispatch(requesTrailer(id))
+    setShowTrailer(showTrailer => !showTrailer);
+  };
 
   return (
     <div className="movie-list__item">
@@ -71,6 +80,7 @@ const Film = ({
           title={title}
           showTrailer={showTrailer}
           handleCloseTrailer={toggleTrailerModal}
+          trailer={trailer}
         />
       )}
     </div>
