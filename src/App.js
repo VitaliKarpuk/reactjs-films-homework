@@ -10,7 +10,6 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-import Child from './Child'
 
 const App = () => {
   const films = useSelector(state => selectorListFilms(state));
@@ -29,7 +28,6 @@ const App = () => {
       <Categories location={location.pathname} />
       <Switch>
         <Route exact path="/"> <MovieList films={films} genre={genre} /></Route>
-        {/* <Route path='/str' component={<Child />} /> */}
         <Route exact path="/:typeSearch"> <MovieList films={films} genre={genre} /></Route>
         <Route path="/genre/:id"><MovieList films={films} genre={genre} /></Route>
       </Switch>
