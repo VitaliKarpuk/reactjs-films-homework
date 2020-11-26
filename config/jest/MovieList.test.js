@@ -33,6 +33,6 @@ describe('My Connected React-Redux Component', () => {
   });
 
   it("renders Search component", () => {
-    expect(component.toJSON()).toMatchSnapshot();;
+    expect(component.toJSON()).toMatchSnapshot();
   });
 })

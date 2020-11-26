@@ -11,7 +11,6 @@ const requesGenre = () => {
     const response = await fetch(`${BASE_URL}${categories.genre}/movie/list?api_key=${API_KEY}&language=en-US`)
       .then(resp => resp.json())
     dispatch(getGenre(response.genres))
-    localStorage.setItem('genre', JSON.stringify(response.genres))
   }
 }
 

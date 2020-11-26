@@ -14,7 +14,6 @@ const Categories = () => {
     selectorGenre(state),
     selectorListFilms(state)
   ]);
-  console.log(arrResult);
 
   return (
     <div className="movie-list__categories">
