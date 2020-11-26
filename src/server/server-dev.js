@@ -38,10 +38,10 @@ if (config.mode === 'development') {
   })
 
 } else {
-    app.use(express.static(HTML_FILE));
+  app.use(express.static(HTML_FILE));
 
 
-  app.get('/*', (req, res) => {
+  app.get('/*', (req, res) => {ы
     res.sendFile(HTML_FILE)
   })
   app.get('/top_rated', (req, res) => {
