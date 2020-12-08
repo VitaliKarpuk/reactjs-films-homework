@@ -10,14 +10,14 @@ import Loading from "../Loading/Loading";
 
 import "./style.scss";
 
-const MovieList = ({ films, genre }) => {
+const MovieList = ({ films, genre, movieListView }) => {
   const { id: filmGenre, typeSearch } = useParams();
   const dispatch = useDispatch();
   const showListFilms = useSelector(state => state.showListFilms);
   const arrGenre = useSelector(state => state.genre);
 
   useEffect(() => {
-    if (filmGenre && arrGenre && !showListFilms) {
+    if (filmGenre && arrGenre) {
       dispatch(requestFilmsByGenre("popular", filmGenre, 1));
     } else {
       dispatch(requesFilms(typeSearch, 1));
@@ -40,10 +40,17 @@ const MovieList = ({ films, genre }) => {
       {!showListFilms ? (
         <Loading />
       ) : (
-        <div className="movie-list__wrapper-items">
+        <div
+          className={
+            movieListView
+              ? "movie-list__wrapper-items"
+              : "movie-list__wrapper-items_active"
+          }
+        >
           {films.map(film => {
             return (
               <Film
+                movieListView={movieListView}
                 key={film.id}
                 title={film.title}
                 overview={film.overview}
@@ -64,12 +71,14 @@ const MovieList = ({ films, genre }) => {
 
 MovieList.propTypes = {
   films: PropTypes.array,
-  genre: PropTypes.array
+  genre: PropTypes.array,
+  movieListView: PropTypes.bool
 };
 
 MovieList.defaultProps = {
   films: [],
-  genre: []
+  genre: [],
+  movieListView: true
 };
 
 export default MovieList;
