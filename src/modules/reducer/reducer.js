@@ -5,7 +5,7 @@ import {
 const initialState = {
   films: [],
   genre: [],
-  showListFilms: true,
+  showListFilms: false,
   trailer: []
 }
 
@@ -20,7 +20,7 @@ const reducer = (state = initialState, action) => {
     case GET_FILMS_BY_GENRES:
       return { ...state, films: action.payload }
     case SHOW_LIST_FILMS:
-      return { ...state, showListFilms: !state.showListFilms }
+      return { ...state, showListFilms: action.payload }
     case GET_TRAILER:
       return { ...state, trailer: action.payload}
   }

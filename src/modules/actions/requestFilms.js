@@ -8,11 +8,11 @@ const getFilms = (results) => ({
 
 const requesFilms= (typeSearch, page) => {
   return async dispatch => {
-    dispatch(showListFilms())
+    dispatch(showListFilms(false))
     const response = await fetch(`${BASE_URL}/movie/${typeSearch ?? 'popular'}?api_key=${API_KEY}&language=en-US&page=${page}`)
       .then(resp => resp.json())
     dispatch(getFilms(response.results));
-    dispatch(showListFilms())
+    dispatch(showListFilms(true))
   }
 }
 

@@ -21,7 +21,7 @@ const sortFilmsByGenre = (arrFilms, id) => {
 const requestFilmsByGenre = (typeSearch, filmGenre, page) => {
   return async (dispatch, getState) => {
     const id = findId(getState().genre, filmGenre);
-    dispatch(showListFilms())
+    dispatch(showListFilms(false))
     while (arr.length < 16) {
       await fetch(`${BASE_URL}/movie/${typeSearch}?api_key=${API_KEY}&language=en-US&page=${page++}`)
         .then(resp => resp.json())
@@ -37,7 +37,7 @@ const requestFilmsByGenre = (typeSearch, filmGenre, page) => {
         })
     }
     arr = []
-    dispatch(showListFilms())
+    dispatch(showListFilms(true))
   }
 }
 
