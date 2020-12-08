@@ -1,10 +1,222 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test App component renders correctly 1`] = `
+exports[`Test ModalInfo component renders App component 1`] = `
 <div
   className="wrapper"
 >
-  <MovieDetailsPage />
-  <MovieList />
+  <div
+    className="movie-details"
+  >
+    <header
+      className="header"
+    >
+      <h1>
+        FILMS
+      </h1>
+      <div
+        className="header__search"
+      >
+        <input
+          onChange={[Function]}
+          onKeyPress={[Function]}
+          placeholder="the jungle book"
+          type="text"
+          value=""
+        />
+        <span
+          className="header__search-icon"
+        />
+      </div>
+    </header>
+    <div
+      className="movie-details__content"
+    >
+      <div
+        className="movie-details__title"
+      >
+        <h2>
+          THE JUNGLE BOOK
+        </h2>
+        <ul
+          className="movie-details__genre"
+        >
+          <li>
+            Adventure
+          </li>
+          <li>
+            Drama
+          </li>
+          <li>
+            Family
+          </li>
+          <li>
+            Fantasy
+          </li>
+          <li>
+            1h 46m
+          </li>
+        </ul>
+        <div
+          className="stars__raiting"
+        >
+          <span
+            className="star__rating_active"
+          >
+            🟊
+          </span>
+          <span
+            className="star__rating_active"
+          >
+            🟊
+          </span>
+          <span
+            className="star__rating_active"
+          >
+            🟊
+          </span>
+          <span
+            className="star__rating_inactive"
+          >
+            🟊
+          </span>
+          <span
+            className="star__rating_inactive"
+          >
+            🟊
+          </span>
+          <div
+            className="stars__raiting_value"
+          >
+            3
+          </div>
+        </div>
+      </div>
+      <div
+        className="movie-details__buttons"
+      >
+        <div
+          className="modal-info"
+        >
+          <p>
+            There are growing dangers in the wizarding world of 1926 New York.  Something mysterious is leaving a path of destruction in the streets, threatening to expose the wizarding
+          </p>
+        </div>
+        <button
+          className="btn__watch"
+          onClick={[Function]}
+        >
+          Watch Now
+        </button>
+        <button
+          className="btn__info"
+          onClick={[Function]}
+        >
+          View Info
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="movie-list__categories"
+  >
+    <div>
+      <ul>
+        <li
+          className=""
+        >
+          <a
+            aria-current={null}
+            href="/"
+            onClick={[Function]}
+          >
+            Trending
+          </a>
+        </li>
+        <li
+          className=""
+        >
+          <a
+            aria-current="page"
+            className="active"
+            href="/top_rated"
+            onClick={[Function]}
+            style={Object {}}
+          >
+            Top Rated
+          </a>
+        </li>
+        <li
+          className=""
+        >
+          <a
+            aria-current={null}
+            href="/upcoming"
+            onClick={[Function]}
+          >
+            Coming Soon
+          </a>
+        </li>
+        <li
+          className="movie-list__categories-genre"
+        >
+          <span>
+            Genre ∨
+          </span>
+          <ul
+            className="movie-list__categories-genre_list"
+          >
+            <li>
+              <a
+                aria-current={null}
+                href="/genre/undefined"
+                onClick={[Function]}
+              />
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div>
+        <div
+          className="movie-list__response_active"
+          onClick={[Function]}
+        >
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
+        <div
+          className="movie-list__no-response_active"
+          onClick={[Function]}
+        >
+          <span />
+          <span />
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <section
+    className="movie-list"
+  >
+    <div
+      className="loading"
+    >
+      <ul>
+        <li
+          className="red"
+        />
+        <li
+          className="blue"
+        />
+        <li
+          className="violet"
+        />
+      </ul>
+      <h3>
+        LOADING
+      </h3>
+    </div>
+  </section>
 </div>
 `;

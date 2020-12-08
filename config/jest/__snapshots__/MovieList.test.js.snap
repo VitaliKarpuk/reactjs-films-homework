@@ -5,7 +5,47 @@ exports[`My Connected React-Redux Component renders Search component 1`] = `
   className="movie-list"
 >
   <div
-    className="movie-list__wrapper-items"
-  />
+    className="loading"
+  >
+    <ul>
+      <li
+        className="red"
+      />
+      <li
+        className="blue"
+      />
+      <li
+        className="violet"
+      />
+    </ul>
+    <h3>
+      LOADING
+    </h3>
+  </div>
+</section>
+`;
+
+exports[`render MovieList component renders MovieList component 1`] = `
+<section
+  className="movie-list"
+>
+  <div
+    className="loading"
+  >
+    <ul>
+      <li
+        className="red"
+      />
+      <li
+        className="blue"
+      />
+      <li
+        className="violet"
+      />
+    </ul>
+    <h3>
+      LOADING
+    </h3>
+  </div>
 </section>
 `;

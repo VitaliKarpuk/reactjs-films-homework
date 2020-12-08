@@ -5,11 +5,12 @@ import MovieList from '../../src/components/MovieList/MovieList';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import cofigureMockStore from 'redux-mock-store';
+import { MemoryRouter } from "react-router-dom";
 
 
 const mockStore = cofigureMockStore();
 
-describe('My Connected React-Redux Component', () => {
+describe('render MovieList component', () => {
   let store;
   let component;
 
@@ -22,17 +23,14 @@ describe('My Connected React-Redux Component', () => {
 
     component = renderer.create(
       <Provider store={store}>
-        <MovieList />
+        <MemoryRouter initialEntries={['/']}>
+          <MovieList />
+        </MemoryRouter>
       </Provider>
     );
   });
 
-  it("renders Search component", () => {
-    const result = component.toTree().rendered.rendered.props.children[0].props.changeGenre([{ id: 1, name: 'test' }])
-    expect(result).toEqual([]);
-  });
-
-  it("renders Search component", () => {
+  it("renders MovieList component", () => {
     expect(component.toJSON()).toMatchSnapshot();
   });
 })

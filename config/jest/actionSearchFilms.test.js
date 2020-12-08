@@ -18,7 +18,7 @@ afterEach(() => {
 
 it('action getGenre', () => {
 
-  fetchMock.getOnce(`${BASE_URL}/${categories.search}/movie?api_key=${API_KEY}&language=en-US&query=${title}&page=1&include_adult=false`, {
+  fetchMock.getOnce(`${BASE_URL}${categories.search}/movie?api_key=${API_KEY}&language=en-US&query=${title}&page=1&include_adult=false`, {
     headers: { 'content-type': 'application/json' },
     body: { results: [1, 2, 3], status: 'ok' }
   })

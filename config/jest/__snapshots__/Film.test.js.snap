@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test Film component 1`] = `
+exports[`My Connected React-Redux Component renders Films component 1`] = `
 <div
   className="movie-list__item"
 >
@@ -10,48 +10,22 @@ exports[`Test Film component 1`] = `
     
   </div>
   <div
-    className="movie-list__rating"
+    className="wrapper__rating"
   >
-    <h3>
-      
-    </h3>
-    <span>
-      0
-    </span>
+    <div
+      className="movie-list__rating"
+    >
+      <h3>
+        
+      </h3>
+      <span>
+        0
+      </span>
+    </div>
+    <p
+      className="movie-list__genre"
+    />
   </div>
-  <p
-    className="movie-list__genre"
-  />
-  <ModalWatch
-    handleBtnInfo={[Function]}
-    handleShowrailer={[Function]}
-    showTrailer={false}
-  />
-</div>
-`;
-
-exports[`renders correctly Film component in MovieList component 1`] = `
-<div
-  className="movie-list__item"
->
-  <div
-    className="movie-list__item_img"
-  >
-    
-  </div>
-  <div
-    className="movie-list__rating"
-  >
-    <h3>
-      
-    </h3>
-    <span>
-      0
-    </span>
-  </div>
-  <p
-    className="movie-list__genre"
-  />
   <div
     className="movie-hover"
   >
