@@ -121,9 +121,7 @@ exports[`Test ModalInfo component renders App component 1`] = `
   >
     <div>
       <ul>
-        <li
-          className=""
-        >
+        <li>
           <a
             aria-current={null}
             href="/"
@@ -132,12 +130,10 @@ exports[`Test ModalInfo component renders App component 1`] = `
             Trending
           </a>
         </li>
-        <li
-          className=""
-        >
+        <li>
           <a
             aria-current="page"
-            className="active"
+            className="categories_active-item"
             href="/top_rated"
             onClick={[Function]}
             style={Object {}}
@@ -145,9 +141,7 @@ exports[`Test ModalInfo component renders App component 1`] = `
             Top Rated
           </a>
         </li>
-        <li
-          className=""
-        >
+        <li>
           <a
             aria-current={null}
             href="/upcoming"
@@ -156,12 +150,14 @@ exports[`Test ModalInfo component renders App component 1`] = `
             Coming Soon
           </a>
         </li>
-        <li
-          className="movie-list__categories-genre"
-        >
-          <span>
+        <li>
+          <a
+            aria-current={null}
+            href="/genre"
+            onClick={[Function]}
+          >
             Genre ∨
-          </span>
+          </a>
           <ul
             className="movie-list__categories-genre_list"
           >
@@ -179,19 +175,11 @@ exports[`Test ModalInfo component renders App component 1`] = `
         <div
           className="movie-list__response_active"
           onClick={[Function]}
-        >
-          <span />
-          <span />
-          <span />
-          <span />
-        </div>
+        />
         <div
           className="movie-list__no-response_active"
           onClick={[Function]}
-        >
-          <span />
-          <span />
-        </div>
+        />
       </div>
     </div>
   </div>

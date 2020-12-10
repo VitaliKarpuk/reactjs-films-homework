@@ -23,8 +23,9 @@ const reducer = (state = initialState, action) => {
       return { ...state, showListFilms: action.payload }
     case GET_TRAILER:
       return { ...state, trailer: action.payload}
+    default: 
+    return initialState
   }
-  return state
 };
 
 export default reducer;

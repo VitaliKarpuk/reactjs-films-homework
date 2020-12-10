@@ -1,8 +1,8 @@
 import { SHOW_LIST_FILMS } from '../constants/constants';
 
 const showListFilms = (show) => {
-  return async dispatch => {
-    await dispatch({
+  return dispatch => {
+    dispatch({
       type: SHOW_LIST_FILMS,
       payload: show
     })

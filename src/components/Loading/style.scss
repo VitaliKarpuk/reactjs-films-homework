@@ -1,13 +1,11 @@
+@import '../../utils.scss';
+
 .loading {
-  display: flex;
+  @include flex-center;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
   ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
     list-style: none;
 
     li {

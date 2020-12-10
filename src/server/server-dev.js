@@ -21,7 +21,7 @@ if (config.mode === 'development') {
 
   app.use(express.static(HTML_FILE));
 
-  app.get('/*', function(req, res) {
+  app.get('/*', (req, res) => {
     res.sendFile(path.join(DIST_DIR, 'index.html'));
   });
 
@@ -41,7 +41,7 @@ if (config.mode === 'development') {
   app.use(express.static(HTML_FILE));
 
 
-  app.get('/*', (req, res) => {ы
+  app.get('/*', (req, res) => {
     res.sendFile(HTML_FILE)
   })
   app.get('/top_rated', (req, res) => {

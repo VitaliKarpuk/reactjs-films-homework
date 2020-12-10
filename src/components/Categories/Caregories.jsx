@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from 'prop-types';
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { categories } from "../../modules/constants/constants";
 import { selectorGenre } from "../../modules/selectors/index";
@@ -8,50 +8,27 @@ import { selectorGenre } from "../../modules/selectors/index";
 import "./style.scss";
 
 const Categories = ({ handleMovieListView, movieListView }) => {
-  const [activeLink, setActiveLink] = useState("Trending");
-  const arrResult = useSelector(state => selectorGenre(state));
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.pathname) {
-      setActiveLink(location.pathname);
-    }
-  }, [location]);
-
+  const arrResult = useSelector(selectorGenre);
 
   return (
     <div className="movie-list__categories">
       <div>
         <ul>
           <li
-            className={activeLink?.length === 1 ? "categories_active-item" : ""}
+            // className={activeLink?.length === 1 ? "categories_active-item" : ""}
           >
-            <NavLink exact to="/">
+            <NavLink exact to="/" activeClassName='categories_active-item'>
               Trending
             </NavLink>
           </li>
-          <li
-            className={
-              activeLink?.includes("rated") ? "categories_active-item" : ""
-            }
-          >
-            <NavLink to={`${categories.topRated}`}>Top Rated</NavLink>
+          <li>
+            <NavLink to={`${categories.topRated}`} activeClassName='categories_active-item'>Top Rated</NavLink>
           </li>
-          <li
-            className={
-              activeLink?.includes("coming") ? "categories_active-item" : ""
-            }
-          >
-            <NavLink to={`${categories.comingSoon}`}>Coming Soon</NavLink>
+          <li>
+            <NavLink to={`${categories.comingSoon}`} activeClassName='categories_active-item'>Coming Soon</NavLink>
           </li>
-          <li
-            className={
-              activeLink?.includes("genre")
-                ? "movie-list__categories-genre categories_active-item"
-                : "movie-list__categories-genre"
-            }
-          >
-            <span>Genre &#8744;</span>
+          <li>
+            <NavLink to={`/genre`} activeClassName='categories_active-item'>Genre &#8744;</NavLink>
             <ul className="movie-list__categories-genre_list">
               {arrResult.map(item => {
                 return (
@@ -72,10 +49,6 @@ const Categories = ({ handleMovieListView, movieListView }) => {
             }
             onClick={handleMovieListView}
           >
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
           </div>
           <div
             className={
@@ -85,8 +58,6 @@ const Categories = ({ handleMovieListView, movieListView }) => {
             }
             onClick={handleMovieListView}
           >
-            <span></span>
-            <span></span>
           </div>
         </div>
       </div>

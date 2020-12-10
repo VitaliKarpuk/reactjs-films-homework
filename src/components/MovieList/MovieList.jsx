@@ -7,15 +7,16 @@ import requestFilmsByGenre from "../../modules/actions/requestFilmsByGenre";
 import requesFilms from "../../modules/actions/requestFilms";
 import { useParams } from "react-router";
 import Loading from "../Loading/Loading";
+import { selectorGenre, selectorListFilms } from '../../modules/selectors'
 
 import "./style.scss";
 
-const MovieList = ({ films, genre, movieListView }) => {
+const MovieList = ({ movieListView }) => {
   const { id: filmGenre, typeSearch } = useParams();
   const dispatch = useDispatch();
+  const films = useSelector(selectorListFilms)
   const showListFilms = useSelector(state => state.showListFilms);
-  const arrGenre = useSelector(state => state.genre);
-
+  const arrGenre = useSelector(selectorGenre);
   useEffect(() => {
     if (filmGenre && arrGenre) {
       dispatch(requestFilmsByGenre("popular", filmGenre, 1));
@@ -26,7 +27,7 @@ const MovieList = ({ films, genre, movieListView }) => {
 
   const changeGenre = arr => {
     return arr.reduce((acc, item, index) => {
-      genre.forEach(elem => {
+      arrGenre.forEach(elem => {
         if (elem.id === item) {
           acc[index] = elem.name;
         }
@@ -57,7 +58,7 @@ const MovieList = ({ films, genre, movieListView }) => {
                 imgUrl={film.poster_path}
                 rating={film.vote_average}
                 genreFilmArray={film.genre_ids}
-                genre={genre}
+                genre={arrGenre}
                 changeGenre={changeGenre}
                 id={film.id}
               />
@@ -70,14 +71,10 @@ const MovieList = ({ films, genre, movieListView }) => {
 };
 
 MovieList.propTypes = {
-  films: PropTypes.array,
-  genre: PropTypes.array,
   movieListView: PropTypes.bool
 };
 
 MovieList.defaultProps = {
-  films: [],
-  genre: [],
   movieListView: true
 };
 

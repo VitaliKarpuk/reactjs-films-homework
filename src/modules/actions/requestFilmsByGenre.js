@@ -1,8 +1,6 @@
 import { GET_FILMS, API_KEY, BASE_URL } from '../constants/constants';
 import showListFilms from './showListFilms';
 
-let arr = [];
-
 const getFilms = (results) => ({
   type: GET_FILMS,
   payload: results
@@ -13,12 +11,10 @@ const findId = (genres, genreFilm) => {
   return result[0]?.id;
 }
 
-const sortFilmsByGenre = (arrFilms, id) => {
-  const arrRes = arrFilms.filter(item => item.genre_ids.includes(id));
-  arr = arr.concat(...arrRes);
-};
+const sortFilmsByGenre = (arrFilms, id) => arrFilms.filter(item => item.genre_ids.includes(id));
 
 const requestFilmsByGenre = (typeSearch, filmGenre, page) => {
+  let arr = [];
   return async (dispatch, getState) => {
     const id = findId(getState().genre, filmGenre);
     dispatch(showListFilms(false))
@@ -27,7 +23,8 @@ const requestFilmsByGenre = (typeSearch, filmGenre, page) => {
         .then(resp => resp.json())
         .then(data => {
           const films = data.results;
-          sortFilmsByGenre(films, id)
+          const movies = sortFilmsByGenre(films, id)
+          arr = [...arr, ...movies];
           return arr;
         })
         .then(data => {
