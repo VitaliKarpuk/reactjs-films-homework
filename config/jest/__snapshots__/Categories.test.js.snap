@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ModalInfo component renders Search component 1`] = `
+<div
+  className="movie-list__categories"
+>
+  <div>
+    <ul>
+      <li>
+        <a
+          aria-current={null}
+          href="/"
+          onClick={[Function]}
+        >
+          Trending
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current="page"
+          className="categories_active-item"
+          href="/top_rated"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          Top Rated
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          href="/upcoming"
+          onClick={[Function]}
+        >
+          Coming Soon
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          href="/genre"
+          onClick={[Function]}
+        >
+          Genre ∨
+        </a>
+        <ul
+          className="movie-list__categories-genre_list"
+        >
+          <li>
+            <a
+              aria-current={null}
+              href="/genre/undefined"
+              onClick={[Function]}
+            />
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <div>
+      <div
+        className="movie-list__response_active"
+        onClick={[Function]}
+      />
+      <div
+        className="movie-list__no-response_active"
+        onClick={[Function]}
+      />
+    </div>
+  </div>
+</div>
+`;

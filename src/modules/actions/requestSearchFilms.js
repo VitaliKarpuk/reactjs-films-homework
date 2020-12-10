@@ -8,7 +8,7 @@ const searchFilms = (results) => ({
 
 const requestSearchFilms = (title) => {
   return async dispatch => {
-    const response = await fetch(`${BASE_URL}/${categories.search}/movie?api_key=${API_KEY}&language=en-US&query=${title}&page=1&include_adult=false`)
+    const response = await fetch(`${BASE_URL}${categories.search}/movie?api_key=${API_KEY}&language=en-US&query=${title}&page=1&include_adult=false`)
       .then(resp => resp.json())
     dispatch(searchFilms(response.results))
   }

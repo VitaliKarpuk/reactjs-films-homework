@@ -1,19 +1,41 @@
 /* eslint-disable no-undef */
 import React from 'react';
-import ShallowRenderer from 'react-test-renderer/shallow';
-import App from '../../src/App';
-import MovieDetailsPage from '../../src/pages/MovieDetailsPage/MovieDetailsPage';
-import MovieList from '../../src/components/MovieList/MovieList';
 
-describe('Test App component', () => {
-  test('renders correctly', () => {
-    const renderer = new ShallowRenderer();
-    const result = renderer.render(<App />);
-    renderer.getRenderOutput();
-    expect(result.type).toBe('div');
-    expect(result.props.className).toBe('wrapper')
-    expect(result.props.children[0]).toMatchObject(<MovieDetailsPage />);
-    expect(result.props.children[1]).toMatchObject(<MovieList />);
+import App from '../../src/App';
+
+import { Provider } from 'react-redux';
+import renderer from 'react-test-renderer';
+import cofigureMockStore from 'redux-mock-store';
+
+import { MemoryRouter } from "react-router-dom";
+
+
+
+const mockStore = cofigureMockStore();
+
+describe('Test ModalInfo component', () => {
+  let store;
+  let component;
+
+  beforeEach(() => {
+    store = mockStore({
+      films: [{ id: 1, genre_ids: [1] }],
+      genre: [{ id: 1 }],
+      dispatch: jest.fn()
+    });
+
+    component = renderer.create(
+      <Provider store={store}>
+        <MemoryRouter initialEntries={['/top_rated']}>
+           <App />
+        </MemoryRouter>
+      </Provider>
+    );
+  });
+  it("renders App component", () => {
+    const result = component.toJSON();
     expect(result).toMatchSnapshot();
-  })
+  });
 })
+
+

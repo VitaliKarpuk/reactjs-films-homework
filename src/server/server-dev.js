@@ -9,7 +9,7 @@ import config from '../../config/webpack/webpack.dev.config';
 
 const app = express();
 const DIST_DIR = __dirname;
-const HTML_FILE = path.join(DIST_DIR, 'index.html');
+const HTML_FILE = path.join(DIST_DIR, 'build');
 const compiler = webpack(config);
 
 if (config.mode === 'development') {
@@ -19,22 +19,44 @@ if (config.mode === 'development') {
 
   app.use(webpackHotMiddleware(compiler))
 
-  app.get('*', (req, res, next) => {
-    compiler.outputFileSystem.readFile(HTML_FILE, (err, result) => {
-      if (err) {
-        return next(err)
-      }
-      res.set('content-type', 'text/html')
-      res.send(result)
-      res.end()
-    })
+  app.use(express.static(HTML_FILE));
+
+  app.get('/*', (req, res) => {
+    res.sendFile(path.join(DIST_DIR, 'index.html'));
+  });
+
+  app.get('/top_rated', (req, res) => {
+    res.sendFile(path.join(DIST_DIR, 'index.html'));
   })
+
+  app.get('/upcoming', (req, res) => {
+    res.sendFile(path.join(DIST_DIR, 'index.html'));
+  })
+
+  app.get('/genre/:id', (req, res) => {
+    res.sendFile(path.join(DIST_DIR, 'index.html'));
+  })
+
 } else {
-  app.use(express.static(DIST_DIR))
-  app.get('*', (req, res) => {
+  app.use(express.static(HTML_FILE));
+
+
+  app.get('/*', (req, res) => {
     res.sendFile(HTML_FILE)
   })
+  app.get('/top_rated', (req, res) => {
+    res.sendFile(path.join(DIST_DIR, 'index.html'));
+  })
+
+  app.get('/upcoming', (req, res) => {
+    res.sendFile(path.join(DIST_DIR, 'index.html'));
+  })
+
+  app.get('/genre/:id', (req, res) => {
+    res.sendFile(path.join(DIST_DIR, 'index.html'));
+  })
 }
+
 
 const PORT = process.env.PORT || 8080
 

@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 import ModalWatch from "../ModalWatch/ModalWatch";
 import ModalInfoFilm from "../ModalInfoFilm/ModalInfoFilm";
 import ModalTrailer from "../ModalTrailer/ModalTrailer";
+import requesTrailer from "../../modules/actions/requesTrailer";
+import { selectorTrailer } from "../../modules/selectors/index";
 
 import "./style.scss";
 
@@ -13,11 +16,15 @@ const Film = ({
   rating,
   genreFilmArray,
   changeGenre,
-  genre
+  genre,
+  id,
+  movieListView
 }) => {
   const [showInfoFilm, setShowInfoFilm] = useState(false);
   const [genreFilm, setGenreFilm] = useState([]);
   const [showTrailer, setShowTrailer] = useState(false);
+  const trailer = useSelector(state => selectorTrailer(state));
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (genreFilmArray && genre.length > 0) {
@@ -27,7 +34,10 @@ const Film = ({
 
   const toggleInfoModal = () => setShowInfoFilm(showInfoFilm => !showInfoFilm);
 
-  const toggleTrailerModal = () => setShowTrailer(showTrailer => !showTrailer);
+  const toggleTrailerModal = () => {
+    !showTrailer && dispatch(requesTrailer(id));
+    setShowTrailer(showTrailer => !showTrailer);
+  };
 
   return (
     <div className="movie-list__item">
@@ -39,16 +49,19 @@ const Film = ({
       ) : (
         <div className="movie-list__item_img">{title}</div>
       )}
-
-      <div className="movie-list__rating">
-        <h3>{title}</h3>
-        <span>{rating}</span>
+      <div className="wrapper__rating">
+        <div className="movie-list__rating">
+          <h3>{title}</h3>
+          <span>{rating}</span>
+        </div>
+        <p className="movie-list__genre">
+          {genreFilm.map((item, index) =>
+            genreFilm[index + 1] ? `${item}, ` : `${item}`
+          )}
+        </p>
+        {!movieListView && <p className="movie-list__overview">{overview}</p>}
       </div>
-      <p className="movie-list__genre">
-        {genreFilm.map((item, index) =>
-          genreFilm[index + 1] ? `${item}, ` : `${item}`
-        )}
-      </p>
+
       {showInfoFilm ? (
         <ModalInfoFilm
           title={title}
@@ -63,6 +76,7 @@ const Film = ({
           handleBtnInfo={toggleInfoModal}
           handleShowrailer={toggleTrailerModal}
           showTrailer={showTrailer}
+          movieListView={movieListView}
         />
       )}
       {showTrailer && (
@@ -71,6 +85,7 @@ const Film = ({
           title={title}
           showTrailer={showTrailer}
           handleCloseTrailer={toggleTrailerModal}
+          trailer={trailer}
         />
       )}
     </div>
@@ -85,7 +100,8 @@ Film.propTypes = {
   id: PropTypes.number,
   genreFilmArray: PropTypes.array.isRequired,
   genre: PropTypes.array,
-  changeGenre: PropTypes.func
+  changeGenre: PropTypes.func,
+  movieListView: PropTypes.bool
 };
 
 Film.defaultProps = {
@@ -95,7 +111,8 @@ Film.defaultProps = {
   rating: 0,
   id: Math.random(),
   genre: [],
-  changeGenre: () => {}
+  changeGenre: () => {},
+  movieListView: true
 };
 
 export default Film;

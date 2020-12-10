@@ -3,24 +3,29 @@ import PropTypes from "prop-types";
 
 import "./style.scss";
 
-const ModalWatch = ({ handleBtnInfo, handleShowrailer }) => {
+const ModalWatch = ({ handleBtnInfo, handleShowrailer, movieListView }) => {
   return (
     <div className="movie-hover">
       <div className="movie-hover__icon" onClick={handleShowrailer}></div>
       <h3>Watch Now</h3>
-      <button className="btn__info" onClick={handleBtnInfo}>View Info</button>
+      {
+        movieListView && <button className="btn__info" onClick={handleBtnInfo}>View Info</button>
+      }
+      
     </div>
   );
 };
 
 ModalWatch.propTypes = {
   handleShowrailer: PropTypes.func,
-  handleBtnInfo: PropTypes.func
+  handleBtnInfo: PropTypes.func,
+  movieListView: PropTypes.bool
 };
 
 ModalWatch.defaultProps = {
   handleShowrailer: () => {},
-  handleBtnInfo: () => {}
+  handleBtnInfo: () => {},
+  movieListView: true
 };
 
 export default ModalWatch;

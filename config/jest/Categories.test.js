@@ -1,18 +1,16 @@
 /* eslint-disable no-undef */
-import React from 'react'
-import { unmountComponentAtNode } from "react-dom";
-import { act, create } from 'react-test-renderer';
-import ShallowRenderer from 'react-test-renderer/shallow';
-import Film from '../../src/components/Film/Film';
+import React from 'react';
+import Categories from '../../src/components/Categories/Caregories';
 
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import cofigureMockStore from 'redux-mock-store';
+import { MemoryRouter } from "react-router-dom";
 
 
 const mockStore = cofigureMockStore();
 
-describe('My Connected React-Redux Component', () => {
+describe('Test ModalInfo component', () => {
   let store;
   let component;
 
@@ -20,18 +18,18 @@ describe('My Connected React-Redux Component', () => {
     store = mockStore({
       films: [{ id: 1, genre_ids: [1] }],
       genre: [{ id: 1 }],
-      trailer: [{ id: 1 }],
       dispatch: jest.fn()
     });
 
     component = renderer.create(
       <Provider store={store}>
-        <Film genreFilmArray={[]} genre={[{ id: 1 }]} changeGenre={(state) => state}/>
+        <MemoryRouter initialEntries={['/top_rated']}>
+          <Categories />
+        </MemoryRouter>
       </Provider>
     );
   });
-
-  it("renders Films component", () => {
+  it("renders Search component", () => {
     expect(component.toJSON()).toMatchSnapshot();
   });
-});
+})

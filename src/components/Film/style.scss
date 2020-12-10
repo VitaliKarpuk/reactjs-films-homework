@@ -1,3 +1,5 @@
+@import '../../utils.scss';
+
 .movie-list__item {
   width: 500px;
   height: 760px;
@@ -31,9 +33,7 @@
   }
 
   .movie-list__rating {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex;
     padding: 30px 20px 0 20px;
     overflow: hidden;
 
@@ -49,9 +49,7 @@
     }
 
     span {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include flex-center;
       width: 60px;
       height: 36px;
       border-radius: 6px;
@@ -76,4 +74,7 @@
     padding: 20px;
   }
 
+  .wrapper__rating{
+    width: 100%;
+  }
 }

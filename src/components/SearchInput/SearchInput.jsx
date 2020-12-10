@@ -12,6 +12,7 @@ const SearchInput = () => {
   const onHandleEnter = ({ key }) => {
     if (key === "Enter") {
       dispatch(requestSearchFilms(value));
+      setValue('')
     }
   };
   return (

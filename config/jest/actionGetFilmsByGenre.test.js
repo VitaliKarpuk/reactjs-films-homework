@@ -2,7 +2,7 @@
 import cofigureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { API_KEY, GET_FILMS, BASE_URL } from '../../src/modules/constants/constants';
-import requestFilms from "../../src/modules/actions/requestFilms";
+import requestFilmsByGenre from "../../src/modules/actions/requestFilmsByGenre";
 
 import fetchMock from 'fetch-mock';
 
@@ -16,17 +16,34 @@ afterEach(() => {
 it('action getGenre', () => {
   fetchMock.getOnce(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`, {
     headers: { 'content-type': 'application/json' },
-    body: { results: [1, 2, 3], status: 'ok' }
+    body: {
+      results: [{
+        name: 'action',
+        genre_ids: ['1'],
+        id: '1'
+      }], status: 'ok'
+    }
   })
 
   const expectedActions = [
-    { type: 'SHOW_LIST_FILMS', payload: false },
-    { type: 'GET_FILMS', payload: [1, 2, 3] },
-    { type: 'SHOW_LIST_FILMS', payload: true }
+    {
+      type: GET_FILMS,
+      payload: [{
+        name: 'action',
+        genre_ids: ['1'],
+        id: '1'
+      }]
+    }
   ]
-  const store = mockStore({})
+  const store = mockStore({
+    genre: [{
+      name: 'action',
+      genre_ids: ['1'],
+      id: '1'
+    }]
+  })
 
-  return store.dispatch(requestFilms(null, '1')).then(() => {
+  return store.dispatch(requestFilmsByGenre('popular', 'action', '1')).then(() => {
     expect(store.getActions()).toEqual(expectedActions)
   })
 })

@@ -1,20 +1,19 @@
-import { GET_FILMS, API_KEY, BASE_URL, categories } from '../constants/constants';
-import requesGenre from './requesGenre';
+import { GET_FILMS, API_KEY, BASE_URL } from '../constants/constants';
+import showListFilms from './showListFilms';
 
 const getFilms = (results) => ({
   type: GET_FILMS,
   payload: results
 })
 
-const requestFilms = () => {
-  return async (dispatch) => {
-    await fetch(`${BASE_URL}/movie/${categories.popular}?api_key=${API_KEY}&language=en-US&page=1`)
+const requesFilms= (typeSearch, page) => {
+  return async dispatch => {
+    dispatch(showListFilms(false))
+    const response = await fetch(`${BASE_URL}/movie/${typeSearch ?? 'popular'}?api_key=${API_KEY}&language=en-US&page=${page}`)
       .then(resp => resp.json())
-      .then(data => dispatch(getFilms(data.results)))
-      .then(() => {
-        dispatch(requesGenre())
-      })
+    dispatch(getFilms(response.results));
+    dispatch(showListFilms(true))
   }
 }
 
-export default requestFilms;
+export default requesFilms;

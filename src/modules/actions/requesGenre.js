@@ -8,7 +8,7 @@ const getGenre = (genres) => ({
 
 const requesGenre = () => {
   return async dispatch => {
-    const response = await fetch(`${BASE_URL}/${categories.genre}/movie/list?api_key=${API_KEY}&language=en-US`)
+    const response = await fetch(`${BASE_URL}${categories.genre}/movie/list?api_key=${API_KEY}&language=en-US`)
       .then(resp => resp.json())
     dispatch(getGenre(response.genres))
   }
